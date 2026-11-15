@@ -28,21 +28,30 @@ This shelf is a love letter to the games that make one more continue feel inevit
 
 ## STEP INTO THE WORLDS
 
-LoreHub also has dedicated archive sections for four universes:
+LoreHub currently has seven fandom shelves:
 
 ### MEGA MAN ZERO
-A legendary Reploid, the Resistance, Neo Arcadia and a future that needs saving.
+Zero, Ciel's Resistance, Neo Arcadia and a future that needs saving.
 
 ### BLEACH
-Soul Reapers, Zanpakutō, Hollows, Soul Society and the battles that keep escalating.
+Soul Reapers, Zanpakutō, Hollows, Soul Society, Ichigo, Mayuri and the battles that keep escalating.
 
 ### TEKKEN
 The Mishima bloodline, the Devil Gene, rivalries and tournaments where family therapy clearly failed.
 
 ### RESIDENT EVIL
-Outbreaks, biohazards, secret experiments, Umbrella's mess and the people who keep getting sent to clean it up.
+Outbreaks, biohazards, secret experiments, Umbrella's mess, Leon, Claire and Ada.
 
-Browse characters, factions, locations and concepts. Follow related entries. Save the pages you want to come back to.
+### THE KING OF FIGHTERS
+Kyo and Iori's rivalry, the Orochi Saga, tournament history and fighters like Blue Mary.
+
+### CASTLEVANIA
+Dracula, the Belmont legacy, Shanoa, Ecclesia and the glyphs that power Order of Ecclesia.
+
+### FINAL FANTASY
+A franchise shelf for distinct numbered worlds. The current collection covers Final Fantasy V's Crystals, party and Job System, plus a clearly separate Final Fantasy VII entry for Cloud Strife.
+
+Browse characters, factions, locations, events and concepts. Follow related entries. Save the pages you want to come back to.
 
 ## WHY LOREHUB EXISTS
 

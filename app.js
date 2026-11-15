@@ -48,19 +48,35 @@
     const shelf = $("#gameShelf");
     if (!shelf || !Array.isArray(data.games)) return;
     shelf.innerHTML = data.games.map((game, index) => `
-      <article class="game-card" style="--game-accent:${game.accent}">
+      <article class="game-card" style="--game-accent:${game.accent}" tabindex="0" role="button" data-game-id="${game.id}" aria-label="Explore ${esc(game.title)} lore">
         <div class="game-art">
           <img src="${esc(game.art)}" alt="${esc(game.title)} artwork" loading="lazy">
           <span class="game-year">${esc(game.year)}</span>
           <span class="game-index">PICK 0${index + 1}</span>
         </div>
         <div class="game-card-copy">
-          <div class="game-meta"><span>${esc(game.genre)}</span><span>${esc(game.platform)}</span></div>
+          <div class="game-meta"><span>${esc(game.genre)}</span><span class="game-meta-hint">EXPLORE LORE ↘</span></div>
           <h3>${esc(game.title)}</h3>
           <p class="game-subtitle">${esc(game.subtitle)}</p>
           <p class="game-description">${esc(game.description)}</p>
         </div>
       </article>`).join("");
+    $$("[data-game-id]").forEach(card => {
+      const openLore = () => {
+        const game = data.games.find(item => item.id === card.dataset.gameId);
+        const targetFilter = game?.universe || "all";
+        setFilter(targetFilter);
+        $("#articles")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (game && !game.universe) toast("More lore for this franchise is coming. Browse the full collection for now.");
+      };
+      card.addEventListener("click", openLore);
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLore();
+        }
+      });
+    });
   }
 
   function getVisibleArticles() {
@@ -121,6 +137,7 @@
       <div class="detail-layout ${article.render ? "has-character-render" : ""}"><div class="detail-content">
         ${(article.sections || [{heading:"Overview",body:article.summary}]).map(section => `<h2>${esc(section.heading)}</h2><p>${esc(section.body)}</p>`).join("")}
         ${related.length ? `<h2>MORE FROM THIS WORLD</h2><ul>${related.map(item => `<li><a href="#article/${item.id}" data-related="${item.id}">${esc(item.title)}</a> · ${esc(item.category)}</li>`).join("")}</ul>` : ""}
+        ${article.sources?.length ? `<section class="detail-sources"><h2>CHECK THE SCROLLS</h2><ul>${article.sources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a></li>`).join("")}</ul></section>` : ""}
         <div class="detail-actions"><button class="button button-primary" type="button" id="detailSave">${state.saved.includes(id) ? "♥ On my shelf" : "♡ Save to my shelf"}</button><button class="button button-quiet" type="button" id="copyArticle">Copy lore link</button></div>
       </div>${article.render ? `<aside class="detail-character-panel"><div class="render-label">CHARACTER ART</div><div class="character-render-frame"><img src="${esc(article.render)}" alt="${esc(article.title)} full character render"></div><div class="render-caption">${esc(article.title.toUpperCase())} // RESISTANCE UNIT</div></aside>` : ""}<aside class="detail-sidebar"><h3>AT A GLANCE</h3><dl>${Object.entries(article.facts || {}).map(([key,value]) => `<dt>${esc(key.toUpperCase())}</dt><dd>${esc(value)}</dd>`).join("")}<dt>UNIVERSE</dt><dd>${esc(u.name)}</dd></dl></aside></div>`;
     $("#app").hidden = true; $("#articleView").hidden = false; state.view = "article"; window.scrollTo({top:0,behavior:"smooth"});
@@ -170,7 +187,8 @@
   }
 
   function navigateToSection(sectionId, updateHash = true) {
-    const target = document.getElementById(sectionId);
+    const targetId = sectionId === "universes" ? "game-shelf" : sectionId;
+    const target = document.getElementById(targetId);
     if (!target) return;
     showMainView();
     closeMobileNav();
@@ -187,10 +205,17 @@
     const headerHeight = $(".site-header").getBoundingClientRect().height;
     const activationLine = window.scrollY + headerHeight + 32;
     let activeSection = "home";
-    ["home", "universes", "articles", "contribute"].forEach(sectionId => {
-      const section = document.getElementById(sectionId);
+    const navStops = [
+      { id: "home", nav: "home" },
+      { id: "game-shelf", nav: "universes" },
+      { id: "universes", nav: "universes" },
+      { id: "articles", nav: "articles" },
+      { id: "contribute", nav: "contribute" }
+    ];
+    navStops.forEach(stop => {
+      const section = document.getElementById(stop.id);
       if (section && section.getBoundingClientRect().top + window.scrollY <= activationLine) {
-        activeSection = sectionId;
+        activeSection = stop.nav;
       }
     });
     setActiveNav(activeSection);
@@ -242,6 +267,8 @@
 
   renderUniverses(); renderGames(); renderArticles(); updateSavedCount();
   $("#articleTotal").textContent = `${data.articles.length} LORE DROPS`;
+  $("#universeTotal").textContent = String(data.universes.length).padStart(2, "0");
+  $("#worldTotal").textContent = String(data.universes.length).padStart(2, "0");
   if (location.hash.startsWith("#article/")) openArticle(location.hash.slice(9));
   else if (["#home", "#universes", "#articles", "#contribute"].includes(location.hash)) {
     const sectionId = location.hash.slice(1);

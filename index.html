@@ -21,7 +21,7 @@
     </a>
     <nav class="main-nav" aria-label="Main navigation">
       <a class="nav-link active" href="#home" data-nav="home" aria-current="location"><span class="nav-index">01</span>Discover</a>
-      <a class="nav-link" href="#universes" data-nav="universes"><span class="nav-index">02</span>Universes</a>
+      <a class="nav-link" href="#game-shelf" data-nav="universes"><span class="nav-index">02</span>Universes</a>
       <a class="nav-link" href="#articles" data-nav="articles"><span class="nav-index">03</span>Articles</a>
       <a class="nav-link" href="#contribute" data-nav="contribute"><span class="nav-index">04</span>Contribute</a>
     </nav>
@@ -49,7 +49,7 @@
           <input id="heroSearchInput" type="search" placeholder="FIND A CHARACTER, GAME OR LORE RABBIT HOLE..." autocomplete="off" aria-label="Search all articles">
           <kbd>ENTER ↵</kbd>
         </form>
-        <div class="hero-meta"><span><b>04</b> UNIVERSES</span><span class="meta-separator">/</span><span><b id="articleTotal">18</b> LORE DROPS</span><span class="meta-separator">/</span><span class="meta-ready">● PLAYER 1 READY</span></div>
+        <div class="hero-meta"><span><b id="universeTotal">07</b> UNIVERSES</span><span class="meta-separator">/</span><span><b id="articleTotal">18</b> LORE DROPS</span><span class="meta-separator">/</span><span class="meta-ready">● PLAYER 1 READY</span></div>
       </div>
       <div class="hero-art" aria-label="Original pixel-art arcade scene featuring sword, fighting and survival motifs">
         <div class="cabinet-top"><span>LOREHUB // PRESS START</span><span>NO. 001 // 2026</span></div>
@@ -74,14 +74,14 @@
     <section class="section-shell universe-section" id="universes">
       <div class="section-heading">
         <div><div class="eyebrow">PICK YOUR FANDOM <span class="section-pip">◆</span></div><h2>Choose your obsession<span class="heading-period">_</span></h2></div>
-        <span class="section-index">WORLD SELECT <b>///</b> 04</span>
+        <span class="section-index">WORLD SELECT <b>///</b> <span id="worldTotal">07</span></span>
       </div>
       <div class="universe-grid" id="universeGrid"></div>
     </section>
 
     <section class="section-shell article-section" id="articles">
       <div class="section-heading article-heading">
-        <div><div class="eyebrow">FAN LORE // DEEP CUTS <span class="section-pip">◆</span></div><h2>Dig into the lore<span class="heading-period">_</span></h2></div>
+        <div><h2>Dig into the lore<span class="heading-period">_</span></h2></div>
         <span class="section-index" id="visibleCount">ALL LORE DROPS</span>
       </div>
       <div class="filter-bar">
@@ -91,6 +91,9 @@
           <button class="filter-tab" type="button" data-filter="bleach">BLEACH</button>
           <button class="filter-tab" type="button" data-filter="tekken">TEKKEN</button>
           <button class="filter-tab" type="button" data-filter="resident-evil">RESIDENT EVIL</button>
+          <button class="filter-tab" type="button" data-filter="kof">KOF</button>
+          <button class="filter-tab" type="button" data-filter="castlevania">CASTLEVANIA</button>
+          <button class="filter-tab" type="button" data-filter="final-fantasy">FINAL FANTASY</button>
           <button class="filter-tab" type="button" data-filter="saved">★ FAVOURITES <span id="savedTabCount">0</span></button>
         </div>
         <label class="sort-control"><span>SORT BY</span><select id="sortSelect" aria-label="Sort articles"><option value="featured">FAN FAVOURITES</option><option value="title">NAME A–Z</option><option value="universe">FANDOM</option></select></label>
@@ -106,7 +109,7 @@
         <form class="contribute-form" id="contributeForm">
           <div class="form-header"><span>NEW LORE DROP</span><span class="form-step">LORE DROP // 01</span></div>
           <label>WHAT SHOULD WE CALL IT?<input name="title" type="text" maxlength="80" placeholder="e.g. The Soul Society, Zero, Devil Gene..." required></label>
-          <div class="form-row"><label>WHICH FANDOM?<select name="universe" required><option value="">SELECT WORLD</option><option value="mega-man-zero">MEGA MAN ZERO</option><option value="bleach">BLEACH</option><option value="tekken">TEKKEN</option><option value="resident-evil">RESIDENT EVIL</option></select></label><label>WHAT KIND OF LORE?<select name="category" required><option value="">SELECT TYPE</option><option>Character</option><option>Faction</option><option>Location</option><option>Concept</option><option>Story</option></select></label></div>
+          <div class="form-row"><label>WHICH FANDOM?<select name="universe" required><option value="">SELECT WORLD</option><option value="mega-man-zero">MEGA MAN ZERO</option><option value="bleach">BLEACH</option><option value="tekken">TEKKEN</option><option value="resident-evil">RESIDENT EVIL</option><option value="kof">THE KING OF FIGHTERS</option><option value="castlevania">CASTLEVANIA</option><option value="final-fantasy">FINAL FANTASY</option></select></label><label>WHAT KIND OF LORE?<select name="category" required><option value="">SELECT TYPE</option><option>Character</option><option>Faction</option><option>Location</option><option>Concept</option><option>Story</option></select></label></div>
           <label>DROP THE DETAILS<textarea name="summary" rows="4" maxlength="500" placeholder="Tell us why fellow fans need to know this." required></textarea></label>
           <button class="button button-primary submit-button" type="submit">SEND THE LORE <span>▶</span></button>
           <p class="form-feedback" id="formFeedback" role="status"></p>
