@@ -1,18 +1,19 @@
 # LoreHub
 
-**LoreHub** is a static, browser-based fandom knowledge prototype covering three fictional universes: **Bleach**, **Tekken**, and **Resident Evil**.
+**LoreHub** is a static, browser-based fan knowledge prototype with a late-1990s / early-2000s arcade-inspired visual identity. It currently covers three fictional universes: **Bleach**, **Tekken**, and **Resident Evil**.
 
-It is an original student project inspired by community wiki platforms. It is not affiliated with Fandom or the owners of the featured franchises.
+The visual system uses original, hand-authored pixel-art SVG illustrations and a retro arcade interface treatment. It does not use official game screenshots, logos, or character artwork.
 
 ## Current features
 
-- Three universe landing cards with descriptions and entry points.
+- Three universe landing cards with original pixel-art artwork and descriptions.
 - Search across article titles, summaries, categories and article text.
 - Filter by universe or saved articles.
 - Sort articles by featured, title, or universe.
 - Structured article detail pages with facts and related entries.
 - Save and remove bookmarks using browser `localStorage`.
 - Submit article suggestions through a form; submissions are stored locally in the current browser.
+- Sticky navigation with scroll-aware active section state.
 - Responsive layout for desktop and mobile.
 
 ## Run locally
@@ -28,11 +29,15 @@ No build step or package installation is required.
 ```text
 lorehub/
 ├── assets/
+│   ├── arcade-hero.svg
+│   ├── bleach-pixel.svg
+│   ├── tekken-pixel.svg
+│   ├── resident-evil-pixel.svg
 │   └── favicon.svg
 ├── app.js          # UI rendering, search, filters, bookmarks and form logic
 ├── data.js         # Curated demo universe and article data
 ├── index.html      # Application shell and page structure
-├── styles.css      # Responsive visual system
+├── styles.css      # Retro arcade visual system and responsive styles
 └── README.md
 ```
 
@@ -44,13 +49,15 @@ lorehub/
 - There is no authentication, moderation backend, or remote database yet.
 - Search runs against the included local article dataset.
 
-## Suggested next milestones
-
-1. Add a backend API and database for articles and user accounts.
-2. Add moderation and revision history for community submissions.
-3. Add richer character relationship views and category navigation.
-4. Add deployment and usability testing.
-
 ## License and franchise note
 
-The code in this repository is intended as an educational prototype. Franchise names and references are used to identify the fictional universes represented. LoreHub is an independent fan-made project and does not claim ownership of third-party intellectual property. Add original or appropriately licensed artwork before public commercial use.
+The code and original SVG illustrations in this repository are intended as an educational prototype. Franchise names and references are used to identify the fictional universes represented. LoreHub is an independent fan-made project and does not claim ownership of third-party intellectual property. Add original or appropriately licensed artwork before any public commercial use.
+
+
+## Arcade Edition visual update
+
+The Arcade Edition adds a curated game shelf featuring The King of Fighters '97, Castlevania: Order of Ecclesia, Mega Man Zero, Final Fantasy V, Tekken and Resident Evil. The Bleach, Tekken and Resident Evil archive sections remain available below.
+
+Artwork in `assets/` was supplied by the project owner and is used as illustrative franchise/game imagery in this student prototype. LoreHub is an independent fan-made project and is not affiliated with the respective rights holders.
+
+The game shelf is a visual discovery section. The existing searchable article archive, universe filters, article detail view, bookmarks and local contribution form remain part of the application.

@@ -31,13 +31,37 @@
   }
   function renderUniverses() {
     $("#universeGrid").innerHTML = data.universes.map((u, index) => `
-      <button class="universe-card" type="button" style="--card-accent:${u.accent};--card-glow:${u.glow}" data-universe="${u.id}" data-mark="${esc(u.mark)}">
-        <div class="universe-top"><span class="universe-number">0${index + 1} / UNIVERSE</span><span class="universe-icon">${esc(u.icon)}</span></div>
-        <div><h3 class="universe-name">${esc(u.name)}</h3><p class="universe-desc">${esc(u.descriptor)}</p></div>
-        <div class="universe-foot"><span>${esc(u.countLabel)}</span><b>↗</b></div>
+      <button class="universe-card" type="button" style="--card-accent:${u.accent};--card-glow:${u.glow}" data-universe="${u.id}" data-mark="${esc(u.mark)}" aria-label="Explore ${esc(u.name)}">
+        <div class="universe-art franchise-art">
+          <img class="franchise-backdrop" src="${esc(u.art || "assets/arcade-hero.svg")}" alt="" loading="lazy">
+          ${u.portrait ? `<img class="franchise-portrait" src="${esc(u.portrait)}" alt="" loading="lazy">` : ""}
+          ${u.logo ? `<img class="franchise-logo" src="${esc(u.logo)}" alt="${esc(u.name)} logo" loading="lazy">` : ""}
+          <span class="universe-number">WORLD 0${index + 1}</span><span class="universe-icon">${esc(u.icon)}</span>
+        </div>
+        <div class="universe-card-body"><h3 class="universe-name">${esc(u.name)}</h3><p class="universe-desc">${esc(u.descriptor)}</p>
+        <div class="universe-foot"><span>${esc(u.countLabel)}</span><b>▶</b></div></div>
       </button>`).join("");
     $$("[data-universe]").forEach(button => button.addEventListener("click", () => setFilter(button.dataset.universe)));
   }
+  function renderGames() {
+    const shelf = $("#gameShelf");
+    if (!shelf || !Array.isArray(data.games)) return;
+    shelf.innerHTML = data.games.map((game, index) => `
+      <article class="game-card" style="--game-accent:${game.accent}">
+        <div class="game-art">
+          <img src="${esc(game.art)}" alt="${esc(game.title)} artwork" loading="lazy">
+          <span class="game-year">${esc(game.year)}</span>
+          <span class="game-index">PICK 0${index + 1}</span>
+        </div>
+        <div class="game-card-copy">
+          <div class="game-meta"><span>${esc(game.genre)}</span><span>${esc(game.platform)}</span></div>
+          <h3>${esc(game.title)}</h3>
+          <p class="game-subtitle">${esc(game.subtitle)}</p>
+          <p class="game-description">${esc(game.description)}</p>
+        </div>
+      </article>`).join("");
+  }
+
   function getVisibleArticles() {
     let list = [...data.articles];
     if (state.filter === "saved") list = list.filter(article => state.saved.includes(article.id));
@@ -215,7 +239,7 @@
     $(".main-nav").classList.toggle("open", !expanded);
   });
 
-  renderUniverses(); renderArticles(); updateSavedCount();
+  renderUniverses(); renderGames(); renderArticles(); updateSavedCount();
   $("#articleTotal").textContent = `${data.articles.length} ARTICLES`;
   if (location.hash.startsWith("#article/")) openArticle(location.hash.slice(9));
   else if (["#home", "#universes", "#articles", "#contribute"].includes(location.hash)) {

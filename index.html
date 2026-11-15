@@ -3,95 +3,111 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0d13">
-  <meta name="description" content="LoreHub is a fan-built knowledge hub for exploring the worlds, characters, factions and stories of Bleach, Tekken and Resident Evil.">
-  <title>LoreHub — Explore the worlds you love</title>
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="LoreHub is a player-built archive for exploring anime, fighting-game and survival-horror worlds.">
+  <title>LoreHub Arcade — Press Start. Play the Classics.</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="crt-overlay" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="LoreHub home — back to Discover" title="Back to Discover">
-      <span class="brand-mark">L</span><span>lore<span class="brand-accent">hub</span><sup>β</sup></span>
+      <span class="brand-mark" aria-hidden="true"><span>L</span></span>
+      <span class="brand-word">LORE<span>HUB</span><sup>PLAYER 1</sup></span>
     </a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a class="nav-link active" href="#home" data-nav="home" aria-current="location">Discover</a>
-      <a class="nav-link" href="#universes" data-nav="universes">Universes</a>
-      <a class="nav-link" href="#articles" data-nav="articles">Articles</a>
-      <a class="nav-link" href="#contribute" data-nav="contribute">Contribute</a>
+      <a class="nav-link active" href="#home" data-nav="home" aria-current="location"><span class="nav-index">01</span>Discover</a>
+      <a class="nav-link" href="#universes" data-nav="universes"><span class="nav-index">02</span>Universes</a>
+      <a class="nav-link" href="#articles" data-nav="articles"><span class="nav-index">03</span>Articles</a>
+      <a class="nav-link" href="#contribute" data-nav="contribute"><span class="nav-index">04</span>Contribute</a>
     </nav>
     <div class="header-actions">
-      <button class="icon-button" id="savedButton" type="button" aria-label="Open saved articles" title="Saved articles">♡<span class="saved-count" id="savedCount">0</span></button>
+      <button class="icon-button" id="savedButton" type="button" aria-label="Open saved articles" title="Saved articles">★ <span class="saved-count" id="savedCount">0</span></button>
       <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     </div>
   </header>
 
+  <div class="ticker" aria-label="Retro games spotlight">
+    <span class="ticker-label">NOW LOADING</span>
+    <div class="ticker-window"><div class="ticker-track"><span>THE KING OF FIGHTERS 2002 UM</span><b>✦</b><span>MEGA MAN ZERO</span><b>✦</b><span>CASTLEVANIA</span><b>✦</b><span>STREET FIGHTER III</span><b>✦</b><span>MARVEL VS. CAPCOM 2</span><b>✦</b><span>FINAL FANTASY V</span><b>✦</b><span>THE KING OF FIGHTERS 2002 UM</span><b>✦</b><span>MEGA MAN ZERO</span><b>✦</b><span>CASTLEVANIA</span><b>✦</b><span>STREET FIGHTER III</span><b>✦</b><span>MARVEL VS. CAPCOM 2</span><b>✦</b><span>FINAL FANTASY V</span><b>✦</b></div></div>
+    <span class="ticker-status"><i></i> ONLINE</span>
+  </div>
+
   <main id="app">
     <section class="hero section-shell" id="home">
       <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse-dot"></span> THE FAN KNOWLEDGE NETWORK</div>
-        <h1>Every universe<br>has a <span class="gradient-text">deeper story.</span></h1>
-        <p class="hero-description">Explore the characters, factions, places and lore behind the worlds you love. One rabbit hole at a time.</p>
+        <div class="eyebrow"><span class="eyebrow-bracket">[</span> ARCADE CULTURE · GAME ARCHIVE <span class="eyebrow-bracket">]</span></div>
+        <p class="hero-kicker">INSERT COIN. PLAYER 1 READY.</p>
+        <h1>PRESS START.<br><span>PLAY THE CLASSICS.</span></h1>
+        <p class="hero-description">A player-built game archive celebrating arcade legends, pixel-perfect adventures, unforgettable fighters and the worlds we keep coming back to.</p>
         <form class="search-box hero-search" id="heroSearchForm" role="search">
           <span class="search-icon" aria-hidden="true">⌕</span>
-          <input id="heroSearchInput" type="search" placeholder="Search characters, places, factions..." autocomplete="off" aria-label="Search all articles">
+          <input id="heroSearchInput" type="search" placeholder="SEARCH THE ARCHIVE..." autocomplete="off" aria-label="Search all articles">
           <kbd>ENTER ↵</kbd>
         </form>
-        <div class="hero-meta"><span>03 UNIVERSES</span><span class="meta-separator">/</span><span id="articleTotal">18 ARTICLES</span><span class="meta-separator">/</span><span>COMMUNITY-DRIVEN</span></div>
+        <div class="hero-meta"><span><b>03</b> WORLDS</span><span class="meta-separator">/</span><span><b id="articleTotal">18</b> ARCHIVE ENTRIES</span><span class="meta-separator">/</span><span class="meta-ready">● PLAYER 1 READY</span></div>
       </div>
-      <div class="hero-art" aria-label="Featured universes: Bleach, Tekken and Resident Evil">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="orbit-core"><span>LH</span></div>
-        <div class="orbit-label label-top">LORE / ARCHIVE</div>
-        <div class="orbit-label label-bottom">EST. FOR THE FANS</div>
-        <div class="floating-chip chip-bleach"><span class="chip-symbol">斬</span><span><b>BLEACH</b><small>SOULS & SWORDS</small></span></div>
-        <div class="floating-chip chip-tekken"><span class="chip-symbol">拳</span><span><b>TEKKEN</b><small>IRON FIST LEGACY</small></span></div>
-        <div class="floating-chip chip-re"><span class="chip-symbol">BIO</span><span><b>RESIDENT EVIL</b><small>SURVIVAL / HORROR</small></span></div>
+      <div class="hero-art" aria-label="Original pixel-art arcade scene featuring sword, fighting and survival motifs">
+        <div class="cabinet-top"><span>LOREHUB ARCADE SYSTEM</span><span>NO. 001 // 2026</span></div>
+        <div class="hero-screen">
+          <img src="assets/blue-mary-kof97.jpg" alt="Blue Mary promotional artwork from The King of Fighters" />
+          <div class="screen-scanlines" aria-hidden="true"></div>
+          <div class="screen-caption"><span>KOF 97 // GLOBAL MATCH</span><span class="blink-cursor">▌</span></div>
+        </div>
+        <div class="cabinet-controls"><span class="control-label">1P</span><span class="d-pad" aria-hidden="true">✚</span><span class="control-button red" aria-hidden="true"></span><span class="control-button yellow" aria-hidden="true"></span><span class="control-text">PRESS START</span></div>
       </div>
+    </section>
+
+
+    <section class="section-shell game-shelf-section" id="game-shelf">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE CLASSICS // SELECTED CARTRIDGES <span class="section-pip">◆</span></div><h2>On the arcade floor<span class="heading-period">_</span></h2></div>
+        <span class="section-index">PICK YOUR NEXT RUN</span>
+      </div>
+      <div class="game-shelf" id="gameShelf"></div>
     </section>
 
     <section class="section-shell universe-section" id="universes">
       <div class="section-heading">
-        <div><div class="eyebrow">CHOOSE YOUR WORLD</div><h2>Explore universes<span class="heading-period">.</span></h2></div>
-        <span class="section-index">01 / 03</span>
+        <div><div class="eyebrow">SELECT A WORLD <span class="section-pip">◆</span></div><h2>Explore the franchises<span class="heading-period">_</span></h2></div>
+        <span class="section-index">STAGE 01 <b>///</b> 03</span>
       </div>
       <div class="universe-grid" id="universeGrid"></div>
     </section>
 
     <section class="section-shell article-section" id="articles">
       <div class="section-heading article-heading">
-        <div><div class="eyebrow">THE KNOWLEDGE ARCHIVE</div><h2>Go down the rabbit hole<span class="heading-period">.</span></h2></div>
-        <span class="section-index" id="visibleCount">ALL ARTICLES</span>
+        <div><div class="eyebrow">DATABASE // ENTRIES <span class="section-pip">◆</span></div><h2>Browse the archive<span class="heading-period">_</span></h2></div>
+        <span class="section-index" id="visibleCount">ALL ENTRIES</span>
       </div>
       <div class="filter-bar">
         <div class="filter-tabs" id="filterTabs" role="group" aria-label="Filter articles by universe">
-          <button class="filter-tab active" type="button" data-filter="all">All</button>
-          <button class="filter-tab" type="button" data-filter="bleach">Bleach</button>
-          <button class="filter-tab" type="button" data-filter="tekken">Tekken</button>
-          <button class="filter-tab" type="button" data-filter="resident-evil">Resident Evil</button>
-          <button class="filter-tab" type="button" data-filter="saved">Saved <span id="savedTabCount">0</span></button>
+          <button class="filter-tab active" type="button" data-filter="all">ALL</button>
+          <button class="filter-tab" type="button" data-filter="bleach">BLEACH</button>
+          <button class="filter-tab" type="button" data-filter="tekken">TEKKEN</button>
+          <button class="filter-tab" type="button" data-filter="resident-evil">RESIDENT EVIL</button>
+          <button class="filter-tab" type="button" data-filter="saved">★ SAVED <span id="savedTabCount">0</span></button>
         </div>
-        <label class="sort-control"><span>SORT</span><select id="sortSelect" aria-label="Sort articles"><option value="featured">Featured</option><option value="title">Title A–Z</option><option value="universe">Universe</option></select></label>
+        <label class="sort-control"><span>ORDER BY</span><select id="sortSelect" aria-label="Sort articles"><option value="featured">FEATURED</option><option value="title">TITLE A–Z</option><option value="universe">UNIVERSE</option></select></label>
       </div>
-      <div class="active-search" id="activeSearch" hidden><span id="searchSummary"></span><button type="button" id="clearSearch">Clear search ×</button></div>
+      <div class="active-search" id="activeSearch" hidden><span id="searchSummary"></span><button type="button" id="clearSearch">CLEAR SEARCH ×</button></div>
       <div class="article-grid" id="articleGrid" aria-live="polite"></div>
-      <div class="empty-state" id="emptyState" hidden><span class="empty-symbol">⌕</span><h3>No entries found</h3><p>Try another search term or switch the universe filter.</p><button class="button button-quiet" id="resetFilters" type="button">Reset filters</button></div>
+      <div class="empty-state" id="emptyState" hidden><span class="empty-symbol">?</span><h3>NO ENTRIES FOUND</h3><p>Try another search term or switch the universe filter.</p><button class="button button-quiet" id="resetFilters" type="button">RESET FILTERS</button></div>
     </section>
 
     <section class="contribute-section" id="contribute">
       <div class="section-shell contribute-inner">
-        <div class="contribute-copy"><div class="eyebrow">BUILT BY FANS, FOR FANS</div><h2>Know something<br><span class="gradient-text">worth sharing?</span></h2><p>Help grow the archive. Submit an article idea or a new entry for the LoreHub community.</p><div class="contribute-note"><span class="note-icon">✳</span><span>Submissions are saved in this prototype for review. No account required.</span></div></div>
+        <div class="contribute-copy"><div class="eyebrow">COMMUNITY INPUT // PLAYER CONTRIBUTIONS</div><h2>Got the lore?<br><span>DROP IT HERE.</span></h2><p>Know a detail worth archiving? Send an entry idea and help build a better reference point for fellow fans.</p><div class="contribute-note"><span class="note-icon">★</span><span>Prototype mode: submissions are saved locally in this browser for review. No account required.</span></div></div>
         <form class="contribute-form" id="contributeForm">
-          <div class="form-header"><span>SUBMIT AN ENTRY</span><span class="form-step">01 — 03</span></div>
-          <label>Article title<input name="title" type="text" maxlength="80" placeholder="e.g. The Soul Society" required></label>
-          <div class="form-row"><label>Universe<select name="universe" required><option value="">Choose a universe</option><option value="bleach">Bleach</option><option value="tekken">Tekken</option><option value="resident-evil">Resident Evil</option></select></label><label>Category<select name="category" required><option value="">Choose category</option><option>Character</option><option>Faction</option><option>Location</option><option>Concept</option><option>Story</option></select></label></div>
-          <label>What should fans know?<textarea name="summary" rows="4" maxlength="500" placeholder="Write a short overview of the entry..." required></textarea></label>
-          <button class="button button-primary submit-button" type="submit">Submit entry <span>↗</span></button>
+          <div class="form-header"><span>NEW ARCHIVE ENTRY</span><span class="form-step">FORM // 01</span></div>
+          <label>ENTRY TITLE<input name="title" type="text" maxlength="80" placeholder="e.g. The Soul Society" required></label>
+          <div class="form-row"><label>UNIVERSE<select name="universe" required><option value="">SELECT WORLD</option><option value="bleach">BLEACH</option><option value="tekken">TEKKEN</option><option value="resident-evil">RESIDENT EVIL</option></select></label><label>ENTRY TYPE<select name="category" required><option value="">SELECT TYPE</option><option>Character</option><option>Faction</option><option>Location</option><option>Concept</option><option>Story</option></select></label></div>
+          <label>INTEL / SUMMARY<textarea name="summary" rows="4" maxlength="500" placeholder="What should other players know?" required></textarea></label>
+          <button class="button button-primary submit-button" type="submit">SUBMIT ENTRY <span>▶</span></button>
           <p class="form-feedback" id="formFeedback" role="status"></p>
         </form>
       </div>
@@ -99,14 +115,14 @@
   </main>
 
   <section class="article-view section-shell" id="articleView" hidden aria-live="polite">
-    <button class="back-link" id="backToArticles" type="button">← Back to archive</button>
+    <button class="back-link" id="backToArticles" type="button">◀ BACK TO ARCHIVE</button>
     <div id="articleDetail"></div>
   </section>
 
   <footer class="site-footer">
-    <div class="footer-brand"><span class="brand-mark">L</span><span>lore<span class="brand-accent">hub</span></span></div>
-    <p>An independent fan-made knowledge project. Not affiliated with the owners of the featured franchises.</p>
-    <div class="footer-bottom"><span>© 2026 LOREHUB PROJECT</span><span>EXPLORE. DISCOVER. CONNECT.</span><a href="#home">BACK TO TOP ↑</a></div>
+    <div class="footer-brand"><span class="brand-mark"><span>L</span></span><span class="brand-word">LORE<span>HUB</span></span></div>
+    <p>INDEPENDENT FAN-MADE ARCHIVE. NOT AFFILIATED WITH THE OWNERS OF FEATURED FRANCHISES.</p>
+    <div class="footer-bottom"><span>© 2026 LOREHUB PROJECT</span><span>INSERT COIN · EXPLORE · REPEAT</span><a href="#home">BACK TO TOP ↑</a></div>
   </footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="data.js"></script>
