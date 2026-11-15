@@ -17,8 +17,8 @@ Whether you came for an anime legend, a 2D action classic, a fighting-game grudg
 
 A hand-picked shelf of games from the eras of chunky sprites, unforgettable soundtracks, dramatic boss fights and manuals you actually wanted to read.
 
-- **The King of Fighters '97** — team rivalries, the Orochi saga and arcade energy.
-- **Castlevania: Order of Ecclesia** — gothic castles, dangerous corridors and glyph-powered combat.
+- **The King of Fighters** — team rivalries, the Orochi saga and arcade energy.
+- **Castlevania** — gothic castles, dangerous corridors and glyph-powered combat.
 - **Mega Man Zero** — fast action, hard fights and a future that needs saving.
 - **Final Fantasy V** — crystals, airships and a job system with a build for every mood.
 - **Tekken** — family drama, questionable parenting and the King of Iron Fist Tournament.

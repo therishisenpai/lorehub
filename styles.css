@@ -73,7 +73,7 @@ body:before{
 .game-art:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(4,5,9,.68))}
 .game-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .25s;image-rendering:auto}
 .game-card:hover .game-art img{transform:scale(1.035)}
-.game-card:nth-child(3) .game-art img,.game-card:nth-child(5) .game-art img,.game-card:nth-child(6) .game-art img{object-fit:contain;padding:13px;background:radial-gradient(ellipse at center,#303344,#10131c 70%)}
+.game-card:nth-child(3) .game-art img,.game-card:nth-child(5) .game-art img,.game-card:nth-child(6) .game-art img{object-fit:cover!important;object-position:center center;padding:0!important;background:none!important;transform:scale(1.05)}.game-card:nth-child(3):hover .game-art img,.game-card:nth-child(5):hover .game-art img,.game-card:nth-child(6):hover .game-art img{transform:scale(1.1)}
 .game-card:nth-child(2) .game-art img{object-position:center 43%}
 .game-card:nth-child(4) .game-art img{object-position:center 38%}
 .game-year,.game-index{position:absolute;z-index:1;top:10px;padding:6px 8px;background:rgba(7,9,14,.88);border:1px solid #89765d;color:#f5cf65;font:7px var(--pixel)}

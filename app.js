@@ -83,14 +83,14 @@
       return `<article class="article-card" tabindex="0" role="button" data-article="${article.id}" aria-label="Open ${esc(article.title)}">
         <div class="article-card-top"><span class="tag" style="--tag-color:${u.accent}">${esc(u.name)} / ${esc(article.category)}</span><span class="article-id">LH-${String(index + 1).padStart(3,"0")}</span></div>
         <h3>${esc(article.title)}</h3><p>${esc(article.summary)}</p>
-        <div class="article-card-foot"><span class="read-label">${esc(article.reading)} READ · EXPLORE ↗</span><button class="save-card ${state.saved.includes(article.id) ? "saved" : ""}" type="button" data-save="${article.id}" aria-label="${state.saved.includes(article.id) ? "Remove saved" : "Save"} ${esc(article.title)}" title="Save article">${state.saved.includes(article.id) ? "♥" : "♡"}</button></div>
+        <div class="article-card-foot"><span class="read-label">${esc(article.reading)} READ · EXPLORE ↗</span><button class="save-card ${state.saved.includes(article.id) ? "saved" : ""}" type="button" data-save="${article.id}" aria-label="${state.saved.includes(article.id) ? "Remove from favourites" : "Add to favourites"} ${esc(article.title)}" title="Save to favourites">${state.saved.includes(article.id) ? "♥" : "♡"}</button></div>
       </article>`;
     }).join("");
     $("#emptyState").hidden = list.length !== 0;
     $("#articleGrid").hidden = list.length === 0;
-    $("#visibleCount").textContent = `${list.length} ${list.length === 1 ? "ARTICLE" : "ARTICLES"}`;
+    $("#visibleCount").textContent = `${list.length} ${list.length === 1 ? "LORE DROP" : "LORE DROPS"}`;
     $("#activeSearch").hidden = !state.query;
-    $("#searchSummary").textContent = state.query ? `Search results for “${state.query}”` : "";
+    $("#searchSummary").textContent = state.query ? `Lore matches for “${state.query}”` : "";
     $$("[data-article]").forEach(card => {
       card.addEventListener("click", event => { if (event.target.closest("[data-save]")) return; openArticle(card.dataset.article); });
       card.addEventListener("keydown", event => { if ((event.key === "Enter" || event.key === " ") && !event.target.closest("button")) { event.preventDefault(); openArticle(card.dataset.article); } });
@@ -105,7 +105,7 @@
   function toggleSaved(id) {
     state.saved = state.saved.includes(id) ? state.saved.filter(item => item !== id) : [...state.saved,id];
     saveSaved(); updateSavedCount(); renderArticles();
-    toast(state.saved.includes(id) ? "Added to your saved archive" : "Removed from saved archive");
+    toast(state.saved.includes(id) ? "Added to your favourites shelf" : "Removed from your favourites shelf");
   }
   function openArticle(id) {
     const article = articleById[id] || getSubmittedArticles().find(a => a.id === id);
@@ -114,19 +114,19 @@
     const related = (article.related || []).map(key => articleById[key]).filter(Boolean);
     $("#articleDetail").innerHTML = `
       <div class="detail-hero" style="--detail-accent:${u.accent};--detail-glow:${u.glow}">
-        <div class="detail-kicker">${esc(u.name)} / ${esc(article.category)} / ARCHIVE ENTRY</div>
+        <div class="detail-kicker">${esc(u.name)} / ${esc(article.category)} / LORE FILE</div>
         <h1 class="detail-title">${esc(article.title)}</h1><p class="detail-summary">${esc(article.summary)}</p>
-        <div class="detail-meta"><span>${esc(article.category.toUpperCase())}</span><span>${esc(article.reading || "3 min").toUpperCase()} READ</span><span>LOREHUB ENTRY</span></div>
+        <div class="detail-meta"><span>${esc(article.category.toUpperCase())}</span><span>${esc(article.reading || "3 min").toUpperCase()} READ</span><span>FAN ARCHIVE</span></div>
       </div>
       <div class="detail-layout ${article.render ? "has-character-render" : ""}"><div class="detail-content">
         ${(article.sections || [{heading:"Overview",body:article.summary}]).map(section => `<h2>${esc(section.heading)}</h2><p>${esc(section.body)}</p>`).join("")}
-        ${related.length ? `<h2>Related entries</h2><ul>${related.map(item => `<li><a href="#article/${item.id}" data-related="${item.id}">${esc(item.title)}</a> · ${esc(item.category)}</li>`).join("")}</ul>` : ""}
-        <div class="detail-actions"><button class="button button-primary" type="button" id="detailSave">${state.saved.includes(id) ? "♥ Saved" : "♡ Save article"}</button><button class="button button-quiet" type="button" id="copyArticle">Copy entry link</button></div>
-      </div>${article.render ? `<aside class="detail-character-panel"><div class="render-label">CHARACTER RENDER</div><div class="character-render-frame"><img src="${esc(article.render)}" alt="${esc(article.title)} full character render"></div><div class="render-caption">${esc(article.title.toUpperCase())} // RESISTANCE UNIT</div></aside>` : ""}<aside class="detail-sidebar"><h3>ENTRY INFORMATION</h3><dl>${Object.entries(article.facts || {}).map(([key,value]) => `<dt>${esc(key.toUpperCase())}</dt><dd>${esc(value)}</dd>`).join("")}<dt>UNIVERSE</dt><dd>${esc(u.name)}</dd></dl></aside></div>`;
+        ${related.length ? `<h2>MORE FROM THIS WORLD</h2><ul>${related.map(item => `<li><a href="#article/${item.id}" data-related="${item.id}">${esc(item.title)}</a> · ${esc(item.category)}</li>`).join("")}</ul>` : ""}
+        <div class="detail-actions"><button class="button button-primary" type="button" id="detailSave">${state.saved.includes(id) ? "♥ On my shelf" : "♡ Save to my shelf"}</button><button class="button button-quiet" type="button" id="copyArticle">Copy lore link</button></div>
+      </div>${article.render ? `<aside class="detail-character-panel"><div class="render-label">CHARACTER ART</div><div class="character-render-frame"><img src="${esc(article.render)}" alt="${esc(article.title)} full character render"></div><div class="render-caption">${esc(article.title.toUpperCase())} // RESISTANCE UNIT</div></aside>` : ""}<aside class="detail-sidebar"><h3>AT A GLANCE</h3><dl>${Object.entries(article.facts || {}).map(([key,value]) => `<dt>${esc(key.toUpperCase())}</dt><dd>${esc(value)}</dd>`).join("")}<dt>UNIVERSE</dt><dd>${esc(u.name)}</dd></dl></aside></div>`;
     $("#app").hidden = true; $("#articleView").hidden = false; state.view = "article"; window.scrollTo({top:0,behavior:"smooth"});
     $("#backToArticles").onclick = closeArticle;
-    $("#detailSave").onclick = () => { toggleSaved(id); $("#detailSave").textContent = state.saved.includes(id) ? "♥ Saved" : "♡ Save article"; };
-    $("#copyArticle").onclick = async () => { const link = `${location.origin}${location.pathname}#article/${id}`; try { await navigator.clipboard.writeText(link); toast("Entry link copied"); } catch { toast("Copy isn't available in this browser"); } };
+    $("#detailSave").onclick = () => { toggleSaved(id); $("#detailSave").textContent = state.saved.includes(id) ? "♥ On my shelf" : "♡ Save to my shelf"; };
+    $("#copyArticle").onclick = async () => { const link = `${location.origin}${location.pathname}#article/${id}`; try { await navigator.clipboard.writeText(link); toast("Lore link copied"); } catch { toast("Could not copy the lore link here"); } };
     $$('[data-related]').forEach(link => link.addEventListener("click", event => { event.preventDefault(); openArticle(link.dataset.related); }));
     history.replaceState(null,"",`#article/${id}`);
   }
@@ -140,11 +140,11 @@
     event.preventDefault();
     const form = event.currentTarget; const fields = new FormData(form);
     const title = String(fields.get("title") || "").trim(); const universe = String(fields.get("universe") || ""); const category = String(fields.get("category") || ""); const summary = String(fields.get("summary") || "").trim();
-    if (!title || !universe || !category || summary.length < 15) { $("#formFeedback").textContent = "Please complete all fields. The summary needs at least 15 characters."; return; }
+    if (!title || !universe || !category || summary.length < 15) { $("#formFeedback").textContent = "Fill in the details. Give the lore summary at least 15 characters."; return; }
     const submissions = getSubmittedArticles();
     submissions.unshift({id:`submission-${Date.now()}`,title,universe,category,summary,submittedAt:new Date().toISOString()});
     localStorage.setItem("lorehub-submissions", JSON.stringify(submissions));
-    form.reset(); $("#formFeedback").textContent = "Entry saved locally. Thanks for contributing!"; toast("Contribution saved in this browser");
+    form.reset(); $("#formFeedback").textContent = "Lore drop saved in this browser. Thanks for feeding the archive!"; toast("Your lore drop is saved here");
   }
   function setActiveNav(sectionId) {
     $$(".nav-link").forEach(link => {
@@ -241,7 +241,7 @@
   });
 
   renderUniverses(); renderGames(); renderArticles(); updateSavedCount();
-  $("#articleTotal").textContent = `${data.articles.length} ARTICLES`;
+  $("#articleTotal").textContent = `${data.articles.length} LORE DROPS`;
   if (location.hash.startsWith("#article/")) openArticle(location.hash.slice(9));
   else if (["#home", "#universes", "#articles", "#contribute"].includes(location.hash)) {
     const sectionId = location.hash.slice(1);
