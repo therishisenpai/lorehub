@@ -41,7 +41,11 @@
         <div class="universe-card-body"><h3 class="universe-name">${esc(u.name)}</h3><p class="universe-desc">${esc(u.descriptor)}</p>
         <div class="universe-foot"><span>${esc(u.countLabel)}</span><b>▶</b></div></div>
       </button>`).join("");
-    $$("[data-universe]").forEach(button => button.addEventListener("click", () => setFilter(button.dataset.universe)));
+    $$("[data-universe]").forEach(button => button.addEventListener("click", () => {
+      setFilter(button.dataset.universe);
+      // The world card is a shortcut into its filtered database, not just a filter toggle.
+      $("#articles")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
   }
   function renderGames() {
     const shelf = $("#gameShelf");

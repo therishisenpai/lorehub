@@ -61,3 +61,12 @@ The Arcade Edition adds a curated game shelf featuring The King of Fighters '97,
 Artwork in `assets/` was supplied by the project owner and is used as illustrative franchise/game imagery in this student prototype. LoreHub is an independent fan-made project and is not affiliated with the respective rights holders.
 
 The game shelf is a visual discovery section. The existing searchable article archive, universe filters, article detail view, bookmarks and local contribution form remain part of the application.
+
+
+## Follow-up polish
+
+- The hero heading and eyebrow now use the requested anime/games/peak wording.
+- The Bleach franchise card displays only the Bleach logo.
+- The Resident Evil franchise card uses its contained logo artwork, matching the visual treatment of the classics aisle card.
+- Castlevania: Order of Ecclesia artwork is bottom-aligned in its card frame to reveal more of the lower gameplay image.
+- Franchise cards now say "STEP IN." and smoothly scroll to the database while applying the corresponding filter.
