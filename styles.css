@@ -222,3 +222,103 @@ body:before{
   .universe-art.franchise-art{height:190px}
   .franchise-logo-square{width:164px;height:164px}
 }
+
+
+/* Franchise cards: logo sits directly beside its information, not inside an image tile. */
+.universe-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.universe-card{
+  display:grid;
+  grid-template-columns:164px minmax(0,1fr);
+  align-items:stretch;
+  min-height:184px;
+  padding:0;
+  background:linear-gradient(125deg,#151a26,#10141e 70%);
+  border:1px solid #4a4039;
+  border-left:3px solid var(--card-accent);
+  box-shadow:3px 4px 0 #03050a;
+}
+.universe-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--card-accent);
+  box-shadow:5px 6px 0 #03050a,0 0 15px color-mix(in srgb,var(--card-accent) 15%,transparent);
+}
+.franchise-logo-slot{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  min-height:184px;
+  padding:16px;
+  border:0;
+  border-right:1px solid #51443b;
+  background:transparent;
+}
+.franchise-logo-square,
+.universe-card .franchise-logo-square{
+  display:block;
+  width:132px!important;
+  height:132px!important;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:0!important;
+  margin:0;
+  border:0!important;
+  outline:0;
+  background:transparent!important;
+  box-shadow:none!important;
+  image-rendering:auto;
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.24));
+}
+.universe-card-body{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  padding:18px 20px;
+  background:transparent;
+}
+.universe-card-body .universe-name{
+  display:block;
+  margin:0 0 8px;
+  font-size:27px;
+}
+.universe-card-body .universe-desc{
+  display:block;
+  font-size:10px;
+  line-height:1.7;
+}
+.universe-card-body .universe-foot{
+  display:flex;
+  align-items:center;
+  margin-top:13px;
+  padding-top:10px;
+  border-top:1px dashed #443b37;
+}
+.universe-card-body .universe-foot span{
+  font:9px var(--pixel);
+  letter-spacing:1px;
+  color:var(--card-accent);
+}
+.universe-card-body .universe-foot b{
+  margin-left:auto;
+  font-size:17px;
+  color:#f5cf65;
+}
+@media(max-width:850px){
+  .universe-grid{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .universe-card{grid-template-columns:116px minmax(0,1fr);min-height:150px}
+  .franchise-logo-slot{min-height:150px;padding:10px}
+  .franchise-logo-square,.universe-card .franchise-logo-square{width:96px!important;height:96px!important}
+  .universe-card-body{padding:13px}
+  .universe-card-body .universe-name{font-size:22px}
+  .universe-card-body .universe-desc{font-size:9px}
+  .universe-card-body .universe-foot{margin-top:9px;padding-top:8px}
+  .universe-card-body .universe-foot span{font-size:7px}
+}

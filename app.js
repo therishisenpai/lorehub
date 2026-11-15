@@ -32,11 +32,11 @@
   function renderUniverses() {
     $("#universeGrid").innerHTML = data.universes.map((u, index) => `
       <button class="universe-card" type="button" style="--card-accent:${u.accent};--card-glow:${u.glow}" data-universe="${u.id}" aria-label="Explore ${esc(u.name)}">
-        <div class="universe-art franchise-art">
+        <span class="franchise-logo-slot">
           <img class="franchise-logo-square" src="${esc(u.art)}" alt="${esc(u.name)} logo" loading="lazy">
-        </div>
-        <div class="universe-card-body"><h3 class="universe-name">${esc(u.name)}</h3><p class="universe-desc">${esc(u.descriptor)}</p>
-        <div class="universe-foot"><span>${esc(u.countLabel)}</span><b>▶</b></div></div>
+        </span>
+        <span class="universe-card-body"><span class="universe-name">${esc(u.name)}</span><span class="universe-desc">${esc(u.descriptor)}</span>
+        <span class="universe-foot"><span>${esc(u.countLabel)}</span><b>▶</b></span></span>
       </button>`).join("");
     $$("[data-universe]").forEach(button => button.addEventListener("click", () => {
       setFilter(button.dataset.universe);
