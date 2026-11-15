@@ -121,11 +121,11 @@
         <h1 class="detail-title">${esc(article.title)}</h1><p class="detail-summary">${esc(article.summary)}</p>
         <div class="detail-meta"><span>${esc(article.category.toUpperCase())}</span><span>${esc(article.reading || "3 min").toUpperCase()} READ</span><span>LOREHUB ENTRY</span></div>
       </div>
-      <div class="detail-layout"><div class="detail-content">
+      <div class="detail-layout ${article.render ? "has-character-render" : ""}"><div class="detail-content">
         ${(article.sections || [{heading:"Overview",body:article.summary}]).map(section => `<h2>${esc(section.heading)}</h2><p>${esc(section.body)}</p>`).join("")}
         ${related.length ? `<h2>Related entries</h2><ul>${related.map(item => `<li><a href="#article/${item.id}" data-related="${item.id}">${esc(item.title)}</a> · ${esc(item.category)}</li>`).join("")}</ul>` : ""}
         <div class="detail-actions"><button class="button button-primary" type="button" id="detailSave">${state.saved.includes(id) ? "♥ Saved" : "♡ Save article"}</button><button class="button button-quiet" type="button" id="copyArticle">Copy entry link</button></div>
-      </div><aside class="detail-sidebar"><h3>ENTRY INFORMATION</h3><dl>${Object.entries(article.facts || {}).map(([key,value]) => `<dt>${esc(key.toUpperCase())}</dt><dd>${esc(value)}</dd>`).join("")}<dt>UNIVERSE</dt><dd>${esc(u.name)}</dd></dl></aside></div>`;
+      </div>${article.render ? `<aside class="detail-character-panel"><div class="render-label">CHARACTER RENDER</div><div class="character-render-frame"><img src="${esc(article.render)}" alt="${esc(article.title)} full character render"></div><div class="render-caption">${esc(article.title.toUpperCase())} // RESISTANCE UNIT</div></aside>` : ""}<aside class="detail-sidebar"><h3>ENTRY INFORMATION</h3><dl>${Object.entries(article.facts || {}).map(([key,value]) => `<dt>${esc(key.toUpperCase())}</dt><dd>${esc(value)}</dd>`).join("")}<dt>UNIVERSE</dt><dd>${esc(u.name)}</dd></dl></aside></div>`;
     $("#app").hidden = true; $("#articleView").hidden = false; state.view = "article"; window.scrollTo({top:0,behavior:"smooth"});
     $("#backToArticles").onclick = closeArticle;
     $("#detailSave").onclick = () => { toggleSaved(id); $("#detailSave").textContent = state.saved.includes(id) ? "♥ Saved" : "♡ Save article"; };
