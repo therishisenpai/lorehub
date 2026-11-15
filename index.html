@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080d18">
   <meta name="description" content="LoreHub is a player-built archive for exploring anime, fighting-game and survival-horror worlds.">
-  <title>LoreHub</title>
+  <title>LoreHub Arcade — Press Start. Play the Classics.</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
           <input id="heroSearchInput" type="search" placeholder="SEARCH THE ARCHIVE..." autocomplete="off" aria-label="Search all articles">
           <kbd>ENTER ↵</kbd>
         </form>
-        <div class="hero-meta"><span><b>03</b> WORLDS</span><span class="meta-separator">/</span><span><b id="articleTotal">18</b> ARCHIVE ENTRIES</span><span class="meta-separator">/</span><span class="meta-ready">● PLAYER 1 READY</span></div>
+        <div class="hero-meta"><span><b>04</b> WORLDS</span><span class="meta-separator">/</span><span><b id="articleTotal">18</b> ARCHIVE ENTRIES</span><span class="meta-separator">/</span><span class="meta-ready">● PLAYER 1 READY</span></div>
       </div>
       <div class="hero-art" aria-label="Original pixel-art arcade scene featuring sword, fighting and survival motifs">
         <div class="cabinet-top"><span>LOREHUB ARCADE SYSTEM</span><span>NO. 001 // 2026</span></div>
@@ -74,7 +74,7 @@
     <section class="section-shell universe-section" id="universes">
       <div class="section-heading">
         <div><div class="eyebrow">SELECT A WORLD <span class="section-pip">◆</span></div><h2>Explore the franchises<span class="heading-period">_</span></h2></div>
-        <span class="section-index">STAGE 01 <b>///</b> 03</span>
+        <span class="section-index">STAGE 01 <b>///</b> 04</span>
       </div>
       <div class="universe-grid" id="universeGrid"></div>
     </section>
@@ -87,6 +87,7 @@
       <div class="filter-bar">
         <div class="filter-tabs" id="filterTabs" role="group" aria-label="Filter articles by universe">
           <button class="filter-tab active" type="button" data-filter="all">ALL</button>
+          <button class="filter-tab" type="button" data-filter="mega-man-zero">MEGA MAN ZERO</button>
           <button class="filter-tab" type="button" data-filter="bleach">BLEACH</button>
           <button class="filter-tab" type="button" data-filter="tekken">TEKKEN</button>
           <button class="filter-tab" type="button" data-filter="resident-evil">RESIDENT EVIL</button>
@@ -105,7 +106,7 @@
         <form class="contribute-form" id="contributeForm">
           <div class="form-header"><span>NEW ARCHIVE ENTRY</span><span class="form-step">FORM // 01</span></div>
           <label>ENTRY TITLE<input name="title" type="text" maxlength="80" placeholder="e.g. The Soul Society" required></label>
-          <div class="form-row"><label>UNIVERSE<select name="universe" required><option value="">SELECT WORLD</option><option value="bleach">BLEACH</option><option value="tekken">TEKKEN</option><option value="resident-evil">RESIDENT EVIL</option></select></label><label>ENTRY TYPE<select name="category" required><option value="">SELECT TYPE</option><option>Character</option><option>Faction</option><option>Location</option><option>Concept</option><option>Story</option></select></label></div>
+          <div class="form-row"><label>UNIVERSE<select name="universe" required><option value="">SELECT WORLD</option><option value="mega-man-zero">MEGA MAN ZERO</option><option value="bleach">BLEACH</option><option value="tekken">TEKKEN</option><option value="resident-evil">RESIDENT EVIL</option></select></label><label>ENTRY TYPE<select name="category" required><option value="">SELECT TYPE</option><option>Character</option><option>Faction</option><option>Location</option><option>Concept</option><option>Story</option></select></label></div>
           <label>INTEL / SUMMARY<textarea name="summary" rows="4" maxlength="500" placeholder="What should other players know?" required></textarea></label>
           <button class="button button-primary submit-button" type="submit">SUBMIT ENTRY <span>▶</span></button>
           <p class="form-feedback" id="formFeedback" role="status"></p>

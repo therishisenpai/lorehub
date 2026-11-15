@@ -182,3 +182,43 @@ body:before{
   .detail-character-panel{position:static;max-width:260px;width:100%;margin:0 auto;grid-row:1}
   .detail-layout.has-character-render .detail-sidebar{grid-column:auto}
 }
+
+
+/* Franchise selectors: clean, equal-square logo presentation */
+.universe-art.franchise-art{
+  height:205px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px;
+  background:transparent;
+  border:0;
+  overflow:hidden;
+  isolation:isolate;
+}
+.universe-art.franchise-art:before,
+.universe-art.franchise-art:after{display:none!important}
+.franchise-logo-square{
+  display:block;
+  width:176px;
+  height:176px;
+  max-width:100%;
+  object-fit:contain;
+  object-position:center;
+  padding:0;
+  margin:0;
+  background:transparent;
+  border:0;
+  image-rendering:auto;
+  filter:drop-shadow(0 4px 5px rgba(0,0,0,.28));
+}
+.universe-card .universe-icon,
+.universe-card .universe-number,
+.universe-card .franchise-backdrop,
+.universe-card .franchise-portrait,
+.universe-card .franchise-logo{display:none!important}
+.universe-card[data-universe="mega-man-zero"]{--card-accent:#e14a68}
+@media(max-width:680px){
+  .universe-art.franchise-art{height:190px}
+  .franchise-logo-square{width:164px;height:164px}
+}

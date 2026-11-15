@@ -28,7 +28,10 @@ This shelf is a love letter to the games that make one more continue feel inevit
 
 ## STEP INTO THE WORLDS
 
-LoreHub also has dedicated archive sections for three universes:
+LoreHub also has dedicated archive sections for four universes:
+
+### MEGA MAN ZERO
+A legendary Reploid, the Resistance, Neo Arcadia and a future that needs saving.
 
 ### BLEACH
 Soul Reapers, Zanpakutō, Hollows, Soul Society and the battles that keep escalating.

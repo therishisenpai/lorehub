@@ -31,12 +31,9 @@
   }
   function renderUniverses() {
     $("#universeGrid").innerHTML = data.universes.map((u, index) => `
-      <button class="universe-card" type="button" style="--card-accent:${u.accent};--card-glow:${u.glow}" data-universe="${u.id}" data-mark="${esc(u.mark)}" aria-label="Explore ${esc(u.name)}">
+      <button class="universe-card" type="button" style="--card-accent:${u.accent};--card-glow:${u.glow}" data-universe="${u.id}" aria-label="Explore ${esc(u.name)}">
         <div class="universe-art franchise-art">
-          <img class="franchise-backdrop" src="${esc(u.art || "assets/arcade-hero.svg")}" alt="" loading="lazy">
-          ${u.portrait ? `<img class="franchise-portrait" src="${esc(u.portrait)}" alt="" loading="lazy">` : ""}
-          ${u.logo ? `<img class="franchise-logo" src="${esc(u.logo)}" alt="${esc(u.name)} logo" loading="lazy">` : ""}
-          <span class="universe-number">WORLD 0${index + 1}</span><span class="universe-icon">${esc(u.icon)}</span>
+          <img class="franchise-logo-square" src="${esc(u.art)}" alt="${esc(u.name)} logo" loading="lazy">
         </div>
         <div class="universe-card-body"><h3 class="universe-name">${esc(u.name)}</h3><p class="universe-desc">${esc(u.descriptor)}</p>
         <div class="universe-foot"><span>${esc(u.countLabel)}</span><b>▶</b></div></div>
