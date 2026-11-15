@@ -121,11 +121,84 @@
     localStorage.setItem("lorehub-submissions", JSON.stringify(submissions));
     form.reset(); $("#formFeedback").textContent = "Entry saved locally. Thanks for contributing!"; toast("Contribution saved in this browser");
   }
+  function setActiveNav(sectionId) {
+    $$(".nav-link").forEach(link => {
+      const active = link.dataset.nav === sectionId;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }
+
+  function closeMobileNav() {
+    $(".main-nav").classList.remove("open");
+    $("#mobileMenuButton").setAttribute("aria-expanded", "false");
+    $("#mobileMenuButton").textContent = "☰";
+  }
+
+  function showMainView() {
+    if (state.view === "article") {
+      $("#articleView").hidden = true;
+      $("#app").hidden = false;
+      state.view = "home";
+    }
+  }
+
+  function navigateToSection(sectionId, updateHash = true) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+    showMainView();
+    closeMobileNav();
+    if (updateHash) history.replaceState(null, "", `#${sectionId}`);
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActiveNav(sectionId);
+  }
+
+  function updateActiveNav() {
+    if (state.view === "article") {
+      setActiveNav("articles");
+      return;
+    }
+    const headerHeight = $(".site-header").getBoundingClientRect().height;
+    const activationLine = window.scrollY + headerHeight + 32;
+    let activeSection = "home";
+    ["home", "universes", "articles", "contribute"].forEach(sectionId => {
+      const section = document.getElementById(sectionId);
+      if (section && section.getBoundingClientRect().top + window.scrollY <= activationLine) {
+        activeSection = sectionId;
+      }
+    });
+    setActiveNav(activeSection);
+  }
+
+  let scrollSpyPending = false;
+  function requestScrollSpyUpdate() {
+    if (scrollSpyPending) return;
+    scrollSpyPending = true;
+    window.requestAnimationFrame(() => {
+      updateActiveNav();
+      scrollSpyPending = false;
+    });
+  }
+
   function handleSearch(term) {
     state.query = term.trim(); state.filter = "all";
     $$(".filter-tab").forEach(button => button.classList.toggle("active", button.dataset.filter === "all"));
-    renderArticles(); $("#articles").scrollIntoView({behavior:"smooth"});
+    renderArticles(); navigateToSection("articles");
   }
+
+  $(".brand").addEventListener("click", event => {
+    event.preventDefault();
+    navigateToSection("home");
+  });
+
+  $$(".nav-link").forEach(link => link.addEventListener("click", event => {
+    event.preventDefault();
+    navigateToSection(link.dataset.nav === "home" ? "home" : link.dataset.nav);
+  }));
+
+  window.addEventListener("scroll", requestScrollSpyUpdate, { passive: true });
+  window.addEventListener("resize", requestScrollSpyUpdate);
 
   $("#heroSearchForm").addEventListener("submit", event => { event.preventDefault(); handleSearch($("#heroSearchInput").value); });
   $("#heroSearchInput").addEventListener("input", event => { if (!event.target.value.trim()) { state.query = ""; renderArticles(); } });
@@ -135,10 +208,20 @@
   $("#resetFilters").addEventListener("click", () => setFilter("all"));
   $("#savedButton").addEventListener("click", () => setFilter("saved"));
   $("#contributeForm").addEventListener("submit", handleContribution);
-  $("#mobileMenuButton").addEventListener("click", () => { const expanded = $("#mobileMenuButton").getAttribute("aria-expanded") === "true"; $("#mobileMenuButton").setAttribute("aria-expanded", String(!expanded)); $("#mobileMenuButton").textContent = expanded ? "☰" : "×"; $(".main-nav").classList.toggle("open",!expanded); });
-  $$(".nav-link").forEach(link => link.addEventListener("click", () => { $$(".nav-link").forEach(item => item.classList.toggle("active",item===link)); $(".main-nav").classList.remove("open"); $("#mobileMenuButton").setAttribute("aria-expanded","false"); $("#mobileMenuButton").textContent="☰"; }));
+  $("#mobileMenuButton").addEventListener("click", () => {
+    const expanded = $("#mobileMenuButton").getAttribute("aria-expanded") === "true";
+    $("#mobileMenuButton").setAttribute("aria-expanded", String(!expanded));
+    $("#mobileMenuButton").textContent = expanded ? "☰" : "×";
+    $(".main-nav").classList.toggle("open", !expanded);
+  });
 
   renderUniverses(); renderArticles(); updateSavedCount();
   $("#articleTotal").textContent = `${data.articles.length} ARTICLES`;
   if (location.hash.startsWith("#article/")) openArticle(location.hash.slice(9));
+  else if (["#home", "#universes", "#articles", "#contribute"].includes(location.hash)) {
+    const sectionId = location.hash.slice(1);
+    requestAnimationFrame(() => navigateToSection(sectionId, false));
+  } else {
+    requestScrollSpyUpdate();
+  }
 })();
