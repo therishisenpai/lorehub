@@ -1,72 +1,65 @@
-# LoreHub
+# LOREHUB
+### ANIME · GAMES · PEAK
 
-**LoreHub** is a static, browser-based fan knowledge prototype with a late-1990s / early-2000s arcade-inspired visual identity. It currently covers three fictional universes: **Bleach**, **Tekken**, and **Resident Evil**.
+**Explore peak. Revisit the classics. Get lost in the lore.**
 
-The visual system uses original, hand-authored pixel-art SVG illustrations and a retro arcade interface treatment. It does not use official game screenshots, logos, or character artwork.
+LoreHub is a fan-made corner of the internet for people who get a little too invested in fictional worlds.
 
-## Current features
+The rivalries. The transformations. The ridiculous move lists. The mysterious organizations. The characters who live rent-free in our heads. The tiny bits of lore you only discover after falling down a three-hour wiki rabbit hole.
 
-- Three universe landing cards with original pixel-art artwork and descriptions.
-- Search across article titles, summaries, categories and article text.
-- Filter by universe or saved articles.
-- Sort articles by featured, title, or universe.
-- Structured article detail pages with facts and related entries.
-- Save and remove bookmarks using browser `localStorage`.
-- Submit article suggestions through a form; submissions are stored locally in the current browser.
-- Sticky navigation with scroll-aware active section state.
-- Responsive layout for desktop and mobile.
+Whether you came for an anime legend, a 2D action classic, a fighting-game grudge match, or a survival-horror nightmare, there's always another rabbit hole waiting.
 
-## Run locally
+**Insert coin. Pick a world. Stay for the lore.**
 
-No build step or package installation is required.
+---
 
-1. Download or clone the repository.
-2. Open `index.html` in a modern browser.
-3. For a local web server, run `python -m http.server 8000` from the project folder and visit `http://localhost:8000`.
+## WHAT'S ON THE ARCADE FLOOR?
 
-## Project structure
+A hand-picked shelf of games from the eras of chunky sprites, unforgettable soundtracks, dramatic boss fights and manuals you actually wanted to read.
 
-```text
-lorehub/
-├── assets/
-│   ├── arcade-hero.svg
-│   ├── bleach-pixel.svg
-│   ├── tekken-pixel.svg
-│   ├── resident-evil-pixel.svg
-│   └── favicon.svg
-├── app.js          # UI rendering, search, filters, bookmarks and form logic
-├── data.js         # Curated demo universe and article data
-├── index.html      # Application shell and page structure
-├── styles.css      # Retro arcade visual system and responsive styles
-└── README.md
-```
+- **The King of Fighters '97** — team rivalries, the Orochi saga and arcade energy.
+- **Castlevania: Order of Ecclesia** — gothic castles, dangerous corridors and glyph-powered combat.
+- **Mega Man Zero** — fast action, hard fights and a future that needs saving.
+- **Final Fantasy V** — crystals, airships and a job system with a build for every mood.
+- **Tekken** — family drama, questionable parenting and the King of Iron Fist Tournament.
+- **Resident Evil** — locked doors, suspicious laboratories and absolutely not enough ammunition.
 
-## Prototype limitations
+This shelf is a love letter to the games that make one more continue feel inevitable.
 
-- Data is a curated local sample, not a complete fandom database.
-- Bookmarks and submissions are stored in the current browser only; they do not sync between users or devices.
-- The contribution form is a local prototype and does not publish community edits.
-- There is no authentication, moderation backend, or remote database yet.
-- Search runs against the included local article dataset.
+## STEP INTO THE WORLDS
 
-## License and franchise note
+LoreHub also has dedicated archive sections for three universes:
 
-The code and original SVG illustrations in this repository are intended as an educational prototype. Franchise names and references are used to identify the fictional universes represented. LoreHub is an independent fan-made project and does not claim ownership of third-party intellectual property. Add original or appropriately licensed artwork before any public commercial use.
+### BLEACH
+Soul Reapers, Zanpakutō, Hollows, Soul Society and the battles that keep escalating.
 
+### TEKKEN
+The Mishima bloodline, the Devil Gene, rivalries and tournaments where family therapy clearly failed.
 
-## Arcade Edition visual update
+### RESIDENT EVIL
+Outbreaks, biohazards, secret experiments, Umbrella's mess and the people who keep getting sent to clean it up.
 
-The Arcade Edition adds a curated game shelf featuring The King of Fighters '97, Castlevania: Order of Ecclesia, Mega Man Zero, Final Fantasy V, Tekken and Resident Evil. The Bleach, Tekken and Resident Evil archive sections remain available below.
+Browse characters, factions, locations and concepts. Follow related entries. Save the pages you want to come back to.
 
-Artwork in `assets/` was supplied by the project owner and is used as illustrative franchise/game imagery in this student prototype. LoreHub is an independent fan-made project and is not affiliated with the respective rights holders.
+## WHY LOREHUB EXISTS
 
-The game shelf is a visual discovery section. The existing searchable article archive, universe filters, article detail view, bookmarks and local contribution form remain part of the application.
+Because sometimes you want more than a quick search result.
 
+You want to remember who that character was, understand why two rivals hate each other, trace a faction's history, revisit a game's world, or settle an argument that absolutely did not need to become a 40-message group chat.
 
-## Follow-up polish
+LoreHub is meant to make that kind of exploring feel fun, clear and easy to jump into. It's a small fan archive with room to grow: more worlds, more games, more characters and more lore rabbit holes.
 
-- The hero heading and eyebrow now use the requested anime/games/peak wording.
-- The Bleach franchise card displays only the Bleach logo.
-- The Resident Evil franchise card uses its contained logo artwork, matching the visual treatment of the classics aisle card.
-- Castlevania: Order of Ecclesia artwork is bottom-aligned in its card frame to reveal more of the lower gameplay image.
-- Franchise cards now say "STEP IN." and smoothly scroll to the database while applying the corresponding filter.
+## A QUICK NOTE
+
+LoreHub is an early, fan-made prototype. Its archive is a curated sample rather than a complete encyclopedia. Saved articles and submitted entry ideas stay in the browser where they were added; they are not yet shared with other visitors or published to a central community database.
+
+To take a look, open **`index.html`** in a modern web browser.
+
+## FAN PROJECT NOTICE
+
+LoreHub is an independent, non-commercial fan project and is not affiliated with, endorsed by, or sponsored by the creators or publishers of the featured franchises. Franchise names, characters, logos and supplied artwork belong to their respective rights holders. The artwork included in this prototype was supplied for this project and is used here for illustrative, fan-made purposes.
+
+---
+
+**LOREHUB // ANIME · GAMES · PEAK**  
+*Insert coin. Explore. Repeat.*
