@@ -172,11 +172,7 @@
     });
   }
 
-  function closeMobileNav() {
-    $(".main-nav").classList.remove("open");
-    $("#mobileMenuButton").setAttribute("aria-expanded", "false");
-    $("#mobileMenuButton").textContent = "☰";
-  }
+  function closeMobileNav() { /* The top bar has no dropdown navigation. */ }
 
   function showMainView() {
     if (state.view === "article") {
@@ -258,12 +254,6 @@
   $("#resetFilters").addEventListener("click", () => setFilter("all"));
   $("#savedButton").addEventListener("click", () => setFilter("saved"));
   $("#contributeForm").addEventListener("submit", handleContribution);
-  $("#mobileMenuButton").addEventListener("click", () => {
-    const expanded = $("#mobileMenuButton").getAttribute("aria-expanded") === "true";
-    $("#mobileMenuButton").setAttribute("aria-expanded", String(!expanded));
-    $("#mobileMenuButton").textContent = expanded ? "☰" : "×";
-    $(".main-nav").classList.toggle("open", !expanded);
-  });
 
   renderUniverses(); renderGames(); renderArticles(); updateSavedCount();
   $("#articleTotal").textContent = `${data.articles.length} LORE DROPS`;
