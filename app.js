@@ -10,7 +10,7 @@
   const articleById = Object.fromEntries(data.articles.map(a => [a.id, a]));
 
   function loadSaved() {
-    try { const value = JSON.parse(localStorage.getItem("lorehub-saved") || "[]"); return Array.isArray(value) ? value : []; }
+    try { const value = JSON.parse(localStorage.getItem("lorehub-saved") || "[]"); const validIds = new Set(data.articles.map(article => article.id)); return Array.isArray(value) ? value.filter(id => validIds.has(id)) : []; }
     catch { return []; }
   }
   function saveSaved() { localStorage.setItem("lorehub-saved", JSON.stringify(state.saved)); }

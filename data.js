@@ -1,4 +1,4 @@
-/* LoreHub fan archive. Original summaries with canon details checked against linked official sources. */
+/* LoreHub gaming archive. Original fan summaries with source links where available. */
 window.LOREHUB_DATA = {
   "universes": [
     {
@@ -9,20 +9,8 @@ window.LOREHUB_DATA = {
       "art": "assets/mega-man-zero-logo-square.png",
       "accent": "#e14a68",
       "glow": "rgba(225,74,104,.22)",
-      "description": "A future where Zero awakens to fight for the Resistance against Neo Arcadia.",
+      "description": "A hard-edged action-platformer saga where Zero wakes in a future ruled by Neo Arcadia.",
       "featured": "Zero",
-      "featuredLabel": "START HERE"
-    },
-    {
-      "id": "bleach",
-      "name": "Bleach",
-      "descriptor": "Soul Reapers, blades & otherworldly battles",
-      "countLabel": "STEP IN.",
-      "art": "assets/bleach-logo-square.png",
-      "accent": "#53dbe1",
-      "glow": "rgba(104,78,175,.27)",
-      "description": "A world where Soul Reapers protect the living world from corrupted spirits and guide souls onward.",
-      "featured": "The Soul Society",
       "featuredLabel": "START HERE"
     },
     {
@@ -33,7 +21,7 @@ window.LOREHUB_DATA = {
       "art": "assets/tekken-logo-square.png",
       "accent": "#ff785c",
       "glow": "rgba(181,92,63,.23)",
-      "description": "A fighting-game saga shaped by powerful families, global tournaments and the Devil Gene.",
+      "description": "A fighting-game saga of brutal family feuds, tournament showdowns and the Devil Gene.",
       "featured": "The Mishima Saga",
       "featuredLabel": "START HERE"
     },
@@ -45,14 +33,14 @@ window.LOREHUB_DATA = {
       "art": "assets/resident-evil-logo-square.png",
       "accent": "#a8d86d",
       "glow": "rgba(54,133,143,.22)",
-      "description": "A survival-horror universe of viral outbreaks, secret laboratories and people fighting to survive.",
+      "description": "A survival-horror universe of biohazards, secret laboratories and desperate escapes.",
       "featured": "Umbrella Corporation",
       "featuredLabel": "START HERE"
     },
     {
       "id": "kof",
       "name": "The King of Fighters",
-      "descriptor": "Dream matches, rivalries & the Orochi saga",
+      "descriptor": "Dream teams, rivalries & the Orochi Saga",
       "countLabel": "STEP IN.",
       "art": "assets/blue-mary-kof97.jpg",
       "accent": "#f05b43",
@@ -197,186 +185,6 @@ window.LOREHUB_DATA = {
           "label": "Mega Man Zero series overview",
           "url": "https://www.capcom-games.com/megaman/"
         }
-      ]
-    },
-    {
-      "id": "bleach-ichigo",
-      "universe": "bleach",
-      "title": "Ichigo Kurosaki",
-      "category": "Character",
-      "summary": "A teenager whose life changes after he gains the power of a Soul Reaper.",
-      "tag": "CHARACTER",
-      "featured": true,
-      "reading": "4 min",
-      "facts": {
-        "Role": "Substitute Soul Reaper",
-        "Affiliation": "Kurosaki family / allies",
-        "Series": "Bleach"
-      },
-      "sections": [
-        {
-          "heading": "Overview",
-          "body": "Ichigo Kurosaki is the central protagonist of Bleach. After meeting Rukia Kuchiki, he becomes involved in the work of Soul Reapers and the conflicts that threaten both the living world and the realms beyond it."
-        },
-        {
-          "heading": "Why he matters",
-          "body": "Ichigo's story connects several major groups and conflicts. His unusual heritage becomes an important part of the series' larger mythology."
-        }
-      ],
-      "related": [
-        "bleach-rukia",
-        "bleach-soul-society",
-        "bleach-zanpakuto"
-      ],
-      "render": "assets/ichigo-kurosaki.png",
-      "sources": [
-        {
-          "label": "BLEACH official character profile: Ichigo Kurosaki",
-          "url": "https://bleach-anime.com/en/character/?chara=77-Official"
-        }
-      ]
-    },
-    {
-      "id": "bleach-rukia",
-      "universe": "bleach",
-      "title": "Rukia Kuchiki",
-      "category": "Character",
-      "summary": "The Soul Reaper whose encounter with Ichigo sets the story in motion.",
-      "tag": "CHARACTER",
-      "featured": true,
-      "reading": "3 min",
-      "facts": {
-        "Role": "Soul Reaper",
-        "Affiliation": "Gotei 13 / Kuchiki family",
-        "Series": "Bleach"
-      },
-      "sections": [
-        {
-          "heading": "Overview",
-          "body": "Rukia Kuchiki is a Soul Reaper assigned to duties in the human world. Her encounter with Ichigo leads to a transfer of power and a chain of events that draws him into Soul Society's affairs."
-        },
-        {
-          "heading": "Character notes",
-          "body": "Rukia is disciplined and direct, but her relationships and personal history reveal a more vulnerable side beneath her professional responsibilities."
-        }
-      ],
-      "related": [
-        "bleach-ichigo",
-        "bleach-soul-society",
-        "bleach-gotei"
-      ]
-    },
-    {
-      "id": "bleach-soul-society",
-      "universe": "bleach",
-      "title": "Soul Society",
-      "category": "Location",
-      "summary": "The afterlife realm where Soul Reapers maintain order and govern the flow of souls.",
-      "tag": "LOCATION",
-      "featured": true,
-      "reading": "4 min",
-      "facts": {
-        "Type": "Afterlife realm",
-        "Key institution": "Gotei 13",
-        "Series": "Bleach"
-      },
-      "sections": [
-        {
-          "heading": "Overview",
-          "body": "Soul Society is a central setting in Bleach. It is home to Soul Reapers and is organized around the Seireitei and the districts of the Rukongai."
-        },
-        {
-          "heading": "Role in the story",
-          "body": "Its institutions, traditions and internal politics shape many of the series' major conflicts."
-        }
-      ],
-      "related": [
-        "bleach-gotei",
-        "bleach-rukia",
-        "bleach-ichigo"
-      ]
-    },
-    {
-      "id": "bleach-gotei",
-      "universe": "bleach",
-      "title": "Gotei 13",
-      "category": "Faction",
-      "summary": "The thirteen-division military organization responsible for major Soul Reaper duties.",
-      "tag": "FACTION",
-      "featured": false,
-      "reading": "3 min",
-      "facts": {
-        "Type": "Military organization",
-        "Base": "Seireitei",
-        "Series": "Bleach"
-      },
-      "sections": [
-        {
-          "heading": "Overview",
-          "body": "The Gotei 13 is the principal Soul Reaper organization in Soul Society. Its divisions are led by captains and supported by lieutenants and other seated officers."
-        },
-        {
-          "heading": "Responsibilities",
-          "body": "The organization handles threats involving Hollows, protects the order of Soul Society and carries out missions across the worlds."
-        }
-      ],
-      "related": [
-        "bleach-soul-society",
-        "bleach-rukia"
-      ]
-    },
-    {
-      "id": "bleach-zanpakuto",
-      "universe": "bleach",
-      "title": "Zanpakutō",
-      "category": "Concept",
-      "summary": "Soul Reaper swords that reflect their wielders and possess distinctive powers.",
-      "tag": "CONCEPT",
-      "featured": false,
-      "reading": "3 min",
-      "facts": {
-        "Type": "Soul-bound weapon",
-        "Users": "Soul Reapers",
-        "Series": "Bleach"
-      },
-      "sections": [
-        {
-          "heading": "Overview",
-          "body": "A Zanpakutō is the signature weapon of a Soul Reaper. Its identity and abilities are closely connected to its wielder."
-        },
-        {
-          "heading": "Release states",
-          "body": "A Soul Reaper can learn to release a Zanpakutō's power through Shikai and, at a higher level of mastery, Bankai."
-        }
-      ],
-      "related": [
-        "bleach-ichigo",
-        "bleach-gotei"
-      ]
-    },
-    {
-      "id": "bleach-hollow",
-      "universe": "bleach",
-      "title": "Hollows",
-      "category": "Concept",
-      "summary": "Corrupted souls that become dangerous spiritual beings and prey on other souls.",
-      "tag": "CONCEPT",
-      "featured": false,
-      "reading": "2 min",
-      "facts": {
-        "Type": "Corrupted souls",
-        "Opposed by": "Soul Reapers",
-        "Series": "Bleach"
-      },
-      "sections": [
-        {
-          "heading": "Overview",
-          "body": "Hollows are souls that have lost their way or become corrupted. They are a recurring threat in the human world and a major reason Soul Reapers perform their duties."
-        }
-      ],
-      "related": [
-        "bleach-gotei",
-        "bleach-soul-society"
       ]
     },
     {
@@ -761,49 +569,6 @@ window.LOREHUB_DATA = {
         {
           "label": "CAPCOM: Ada Wong, Elusive Femme Fatale",
           "url": "https://game.capcom.com/residentevil/it/umbrella-20230920180000.html"
-        }
-      ]
-    },
-    {
-      "id": "bleach-mayuri",
-      "universe": "bleach",
-      "title": "Mayuri Kurotsuchi",
-      "category": "Character",
-      "summary": "The unsettling Captain of Squad 12, a researcher who treats even the battlefield as an opportunity to test something new.",
-      "tag": "CHARACTER",
-      "featured": true,
-      "reading": "4 min",
-      "render": "assets/mayuri-kurotsuchi.png",
-      "facts": {
-        "Role": "Captain of Squad 12",
-        "Affiliation": "Gotei 13",
-        "Position": "Chief of the Department of Research and Development",
-        "Zanpakutō": "Ashisogi Jizō",
-        "Series": "Bleach"
-      },
-      "sections": [
-        {
-          "heading": "The captain in the laboratory",
-          "body": "Mayuri Kurotsuchi leads the Twelfth Division and the Soul Reaper Research and Development Institute. His curiosity is immense, his ethics are alarming, and he is willing to modify his own body in pursuit of results."
-        },
-        {
-          "heading": "A scientist who fights dirty",
-          "body": "Mayuri's Zanpakutō, Ashisogi Jizō, reflects the disturbing nature of his combat style. His techniques often rely on poison, preparation, unusual inventions and the ability to turn an opponent's assumptions against them."
-        },
-        {
-          "heading": "The price of progress",
-          "body": "Mayuri is not a conventional heroic captain. He can be cruel toward enemies and subordinates alike, and his experiments raise uncomfortable questions about the Soul Society's institutions. That moral discomfort is part of what makes him such a memorable presence."
-        }
-      ],
-      "related": [
-        "bleach-gotei",
-        "bleach-zanpakuto",
-        "bleach-soul-society"
-      ],
-      "sources": [
-        {
-          "label": "BLEACH: Thousand-Year Blood War official character profile",
-          "url": "https://bleach-anime.com/en/character/?chara=65-Official"
         }
       ]
     },
